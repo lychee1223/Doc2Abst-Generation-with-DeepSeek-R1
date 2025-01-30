@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "iip2"
+version = "0.1.0"
+description = ""
+authors = ["lychee1223 <lychee.vinculum@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+unsloth = {git = "https://github.com/unslothai/unsloth.git", extras = ["colab-new"]}
+setuptools = "^75.8.0"
+numpy = "<2"
+triton = "3.1.0"
+wandb = "^0.19.4"
+xformers = "^0.0.29.post1"
+datasets = "^3.2.0"
+torchvision = "^0.20.1"
+nltk = "^3.9.1"
+rouge-score = "^0.1.2"
+sacrebleu = "^2.5.1"
+spacy = "^3.8.4"
+pycocoevalcap = {git = "https://github.com/jmhessel/pycocoevalcap"}
+bert-score = "^0.3.13"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
