@@ -15,7 +15,7 @@ model, tokenizer = FastLanguageModel.from_pretrained(
 )
 
 # データセットの読み込み
-test_dataset = pd.read_json("datasets/IIP2_test.json", dtype={"id": str})
+test_dataset = pd.read_json("datasets/test.json", dtype={"id": str})
 
 # プロンプトテンプレートの定義
 prompt_template = """
