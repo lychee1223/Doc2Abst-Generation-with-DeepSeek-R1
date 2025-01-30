@@ -37,11 +37,11 @@ model, tokenizer = FastLanguageModel.from_pretrained(
 )
 
 # データセットの読み込み
-train_dataset = pd.read_json("datasets/IIP2_train.json", dtype = {"id": str})
+train_dataset = pd.read_json("datasets/train.json", dtype = {"id": str})
 train_dataset["prompt"] = train_dataset.apply(formatting_prompts_func, axis=1)
 train_dataset = Dataset.from_pandas(train_dataset)
 
-valid_dataset = pd.read_json("datasets/IIP2_valid.json", dtype = {"id": str})
+valid_dataset = pd.read_json("datasets/valid.json", dtype = {"id": str})
 valid_dataset["prompt"] = valid_dataset.apply(formatting_prompts_func, axis=1)
 valid_dataset = Dataset.from_pandas(valid_dataset)
 
@@ -73,7 +73,7 @@ training_arguments = TrainingArguments(
     max_steps = 100,
     learning_rate = 2e-4,
     logging_steps = 1,
-    output_dir = "checkpoints2",
+    output_dir = "checkpoints",
     optim = "adamw_8bit",
     report_to="wandb" 
 )
@@ -91,6 +91,6 @@ trainer = SFTTrainer(
 
 ### ======= 学習 ======= ###
 
-wandb.init(project="DeepSeek-R1-Distill-Llama-8B-ft")
+wandb.init(project="IIP2")
 trainer.train()
 wandb.finish()
